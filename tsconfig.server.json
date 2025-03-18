@@ -1,0 +1,15 @@
+// tsconfig.server.json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2019",
+    "lib": ["es2019", "dom"],
+    "isolatedModules": false,
+    "noEmit": false,             // <-- Hier auf false setzen!
+    "outDir": "dist",            // Kompilierte .js-Dateien nach /dist
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["server.ts", "src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

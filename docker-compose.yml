@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  rjks-meet:
+    build: .
+    container_name: rjks-meet
+    restart: unless-stopped
+    networks:
+      - nginx_network
+    environment:
+      - NODE_ENV=production
+      - MEDIASOUP_LISTEN_IP=0.0.0.0
+      - MEDIASOUP_ANNOUNCED_IP=${HOST_IP}
+    env_file:
+      - .env
+    ports:
+      - "4443:4443"  # WebRTC und WebSocket Proxy für Mediasoup
+      - "3000:3000"  # Next.js UI
+
+networks:
+  nginx_network:
+    external: true
