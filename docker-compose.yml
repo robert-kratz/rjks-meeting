@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   rjks-meet:
     build: .
@@ -15,7 +13,7 @@ services:
       - .env
     ports:
       - "4443:4443"  # WebRTC und WebSocket Proxy für Mediasoup
-      - "3000:3000"  # Next.js UI
+      - "8050:3000"  # Externer Port 8050 → interner Port 3000
 
 networks:
   nginx_network:
